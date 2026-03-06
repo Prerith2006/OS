@@ -102,8 +102,8 @@ ProcessID | Arrival | Burst | Completion | Turnaround | Waiting
       P4 |       0 |     6 |          7 |         11 |       5
       P5 |       2 |     3 |         11 |          5 |       2
 
-Average Turnaround Time = 7.80
-Average Waiting Time = 4.60
+Average Turnaround Time = 6.60
+Average Waiting Time = 3.40
 
 Process returned 0 (0x0)   execution time : 25.754 s
 
