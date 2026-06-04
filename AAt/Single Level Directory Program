@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    char files[20][30];
+
+    printf("Single Level Directory\n");
+
+    printf("Enter number of files: ");
+    scanf("%d", &n);
+
+    printf("Enter file names:\n");
+
+    for(i = 0; i < n; i++) {
+        scanf("%s", files[i]);
+    }
+
+    printf("\nFiles in the directory are:\n");
+
+    for(i = 0; i < n; i++) {
+        printf("%s\n", files[i]);
+    }
+
+    return 0;
+}
+
+OUTPUT:
+
+Single Level Directory
+
+Enter number of files: 5
+Enter file names:
+file1.txt
+file2.txt
+report.doc
+image.jpg
+notes.pdf
+
+Files in the directory are:
+file1.txt
+file2.txt
+report.doc
+image.jpg
+notes.pdf
