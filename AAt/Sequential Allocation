@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int start, length, i;
+
+    printf("Sequential File Allocation\n");
+
+    printf("Enter starting block: ");
+    scanf("%d", &start);
+
+    printf("Enter length of file: ");
+    scanf("%d", &length);
+
+    printf("\nAllocated Blocks are:\n");
+
+    for(i = 0; i < length; i++) {
+        printf("%d ", start + i);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
+OUTPUT:
+
+Sequential File Allocation
+
+Enter starting block: 10
+Enter length of file: 5
+
+Allocated Blocks are:
+10 11 12 13 14
