@@ -1,0 +1,102 @@
+#include <stdio.h>
+
+int main() {
+    int mainDir, subDir, files, i, j, k;
+    char mainDirectory[20][30];
+    char subDirectory[20][20][30];
+    char filename[20][20][20][30];
+
+    printf("Hierarchical Directory\n");
+
+    printf("Enter number of main directories: ");
+    scanf("%d", &mainDir);
+
+    for(i = 0; i < mainDir; i++) {
+
+        printf("\nEnter main directory name: ");
+        scanf("%s", mainDirectory[i]);
+
+        printf("Enter number of subdirectories in %s: ", mainDirectory[i]);
+        scanf("%d", &subDir);
+
+        for(j = 0; j < subDir; j++) {
+
+            printf("Enter subdirectory name: ");
+            scanf("%s", subDirectory[i][j]);
+
+            printf("Enter number of files in %s: ", subDirectory[i][j]);
+            scanf("%d", &files);
+
+            printf("Enter file names:\n");
+
+            for(k = 0; k < files; k++) {
+                scanf("%s", filename[i][j][k]);
+            }
+        }
+    }
+
+    printf("\nHierarchical Directory Structure:\n");
+
+    for(i = 0; i < mainDir; i++) {
+
+        printf("\n%s\n", mainDirectory[i]);
+
+        for(j = 0; subDirectory[i][j][0] != '\0'; j++) {
+
+            printf("  %s\n", subDirectory[i][j]);
+
+            for(k = 0; filename[i][j][k][0] != '\0'; k++) {
+                printf("    %s\n", filename[i][j][k]);
+            }
+        }
+    }
+
+    return 0;
+}
+
+OUTPUT:
+
+Hierarchical Directory
+
+Enter number of main directories: 2
+
+Enter main directory name: Documents
+Enter number of subdirectories in Documents: 2
+
+Enter subdirectory name: Reports
+Enter number of files in Reports: 2
+Enter file names:
+report1.doc
+report2.doc
+
+Enter subdirectory name: Notes
+Enter number of files in Notes: 2
+Enter file names:
+notes1.txt
+notes2.txt
+
+Enter main directory name: Pictures
+Enter number of subdirectories in Pictures: 1
+
+Enter subdirectory name: Photos
+Enter number of files in Photos: 3
+Enter file names:
+img1.jpg
+img2.jpg
+img3.jpg
+
+Hierarchical Directory Structure:
+
+Documents
+  Reports
+    report1.doc
+    report2.doc
+  Notes
+    notes1.txt
+    notes2.txt
+
+Pictures
+  Photos
+    img1.jpg
+    img2.jpg
+    img3.jpg
