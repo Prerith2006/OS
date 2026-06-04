@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void sort(int arr[], int n) {
+    int i, j, temp;
+
+    for(i = 0; i < n - 1; i++) {
+        for(j = 0; j < n - i - 1; j++) {
+            if(arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int queue[20], n, head, diskSize;
+    int i, totalSeek = 0;
+
+    printf("SCAN Disk Scheduling\n");
+
+    printf("Enter number of requests: ");
+    scanf("%d", &n);
+
+    printf("Enter request queue:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &queue[i]);
+    }
+
+    printf("Enter initial head position: ");
+    scanf("%d", &head);
+
+    printf("Enter disk size: ");
+    scanf("%d", &diskSize);
+
+    sort(queue, n);
+
+    printf("\nSeek Sequence:\n");
+
+    for(i = 0; i < n; i++) {
+        if(queue[i] >= head)
+            break;
+    }
+
+    int j;
+
+    for(j = i; j < n; j++) {
+        printf("%d -> ", queue[j]);
+        totalSeek += abs(queue[j] - head);
+        head = queue[j];
+    }
+
+    totalSeek += abs((diskSize - 1) - head);
+    head = diskSize - 1;
+
+    for(j = i - 1; j >= 0; j--) {
+        printf("%d -> ", queue[j]);
+        totalSeek += abs(queue[j] - head);
+        head = queue[j];
+    }
+
+    printf("\n\nTotal Seek Time = %d\n", totalSeek);
+
+    return 0;
+}
+
+OUTPUT:
+
+SCAN Disk Scheduling
+
+Enter number of requests: 8
+Enter request queue:
+98 183 37 122 14 124 65 67
+Enter initial head position: 53
+Enter disk size: 200
+
+Seek Sequence:
+65 -> 67 -> 98 -> 122 -> 124 -> 183 -> 37 -> 14 ->
+
+Total Seek Time = 331
